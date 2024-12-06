@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-Ass AI4U 🚀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0f1724;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: rgba(15, 23, 36, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .hero {
+            background: linear-gradient(45deg, #1a2537, #2a3547);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            color: #0f1724;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #00ff88;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .about-card h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap {
+            background: linear-gradient(45deg, #1a2537, #2a3547);
+            padding: 5rem 2rem;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #00ff88;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            position: relative;
+            width: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #00ff88;
+            border-radius: 50%;
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -60px;
+        }
+
+        .timeline-item h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background-color: #0a0f1a;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: #00ff88;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+
+        .faq-container {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #00ff88;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 1rem;
+            color: #b0b0b0;
+            font-size: 1rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .contract-container {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contract-address-box {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(15, 23, 36, 0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        #contract-address-text {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 1rem;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        .copy-button {
+            margin-top: 0.5rem;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            color: #0f1724;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .copy-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .contract-address-box {
+                padding: 0.5rem;
+                gap: 0.5rem;
+            }
+
+            #contract-address-text {
+                font-size: 0.9rem;
+            }
+
+            .copy-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">smart-Ass AI4U</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#community">Community</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>smart-Ass AI4U  🚀</h1>
+            <p>The next generation of meme coins. To the moon and beyond!</p>
+            <img src="/images/photo_2024-12-05_19-13-30.jpg" alt="Rocket dog illustration" style="border-radius: 100%; height: 100px;" > <br>
+            <a href="#" class="cta-button">Buy Now</a>
+        </div>
+    </section>
+
+       <!-- CA Contract Address Section -->
+       <section id="contract-address" class="section">
+        <h2>CA Contract Address</h2>
+        <div class="contract-container">
+            <p>Here is the official contract address for smart-Ass AI4U Coin. Click the button to copy it:</p>
+            <div class="contract-address-box">
+                <span id="contract-address-text">0x123456789abcdef123456789abcdef123456789a</span>
+                <button onclick="copyContractAddress()" class="copy-button">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About smart-Ass AI4U</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Community Driven</h3>
+                <p>Built by the community, for the community. Every holder has a voice in our future.</p>
+            </div>
+            <div class="about-card">
+                <h3>Secure & Safe</h3>
+                <p>Audited smart contract with locked liquidity and fair launch principles.</p>
+            </div>
+            <div class="about-card">
+                <h3>Deflationary</h3>
+                <p>2% of every transaction is burned forever, increasing scarcity over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+        <h2>Roadmap</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Phase 1 - Launch</h3>
+                <p>Website launch, community building, and initial marketing push</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Phase 2 - Growth</h3>
+                <p>Exchange listings, partnerships, and ecosystem expansion</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Phase 3 - Innovation</h3>
+                <p>NFT marketplace launch and DeFi integration</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Phase 4 - Moon</h3>
+                <p>Major exchange listings and global adoption</p>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>What is smart-Ass AI4U Coin? </span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    smart-Ass AI4U Coin is a next-generation meme coin designed to combine fun with real utility and a deflationary model.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>How can I buy smart-Ass AI4U? </span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    You can purchase DogeMoon through our official website or supported exchanges. Make sure to use a compatible wallet.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>Is smart-Ass AI4U safe? </span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, our smart contract is audited, and we have implemented strict security measures, including liquidity lock.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Join Our Community</h3>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">Telegram</a>
+                <a href="#">Discord</a>
+                <a href="#">Medium</a>
+            </div>
+            <p style="margin-top: 2rem;">© 2024 smart-Ass AI4U Coin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                toggle.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                toggle.textContent = '-';
+            }
+        }
+
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                toggle.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                toggle.textContent = '-';
+            }
+        }
+
+        function copyContractAddress() {
+            const address = document.getElementById('contract-address-text').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                alert('Contract address copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
